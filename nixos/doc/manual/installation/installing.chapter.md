@@ -183,7 +183,14 @@ update /etc/fstab.
     # parted /dev/sda -- mkpart primary 1MB -8GB
     ```
 
-3.  Finally, add a *swap* partition. The size required will vary
+3.  Set the *root* partition's boot flag to on. This allows the partition
+    to be booted from.
+
+    ```ShellSession
+    # parted/dev/sda -- set 1 boot on
+    ```
+    
+4.  Finally, add a *swap* partition. The size required will vary
     according to needs, here a 8GiB one is created.
 
     ```ShellSession
@@ -194,6 +201,7 @@ update /etc/fstab.
     The swap partition size rules are no different than for other Linux
     distributions.
     :::
+
 
 Once complete, you can follow with
 [](#sec-installation-partitioning-formatting).
